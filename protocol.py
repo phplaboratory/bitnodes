@@ -149,7 +149,11 @@ from binascii import hexlify, unhexlify
 from cStringIO import StringIO
 from operator import itemgetter
 
-MAGIC_NUMBER = "\xF9\xBE\xB4\xD9"
+#MAGIC_NUMBER = "\xF9\xBE\xB4\xD9"
+#MAGIC_NUMBER = "\xFA\xBF\xB5\xDA"
+MAGIC_NUMBER = "\x0b\x11\x09\x07"
+
+
 MIN_PROTOCOL_VERSION = 70001
 PROTOCOL_VERSION = 70002
 FROM_SERVICES = 0
@@ -157,10 +161,11 @@ TO_SERVICES = 1  # NODE_NETWORK
 USER_AGENT = "/bitnodes.21.co:0.1/"
 HEIGHT = 395142
 RELAY = 0  # set to 1 to receive all txs
-DEFAULT_PORT = 8333
+DEFAULT_PORT = 18333
 
 SOCKET_BUFSIZE = 8192
-SOCKET_TIMEOUT = 15
+#SOCKET_TIMEOUT = 15
+SOCKET_TIMEOUT = 150
 HEADER_LEN = 24
 
 ONION_PREFIX = "\xFD\x87\xD8\x7E\xEB\x43"  # ipv6 prefix for .onion address
@@ -919,7 +924,13 @@ class Connection(object):
 
 
 def main():
-    to_addr = ("148.251.238.178", 8333)
+    to_addr = ("159.253.28.115", 18333)
+    #to_addr = ("52.4.156.236", 18333)
+    #to_addr = ("127.0.0.1", 18333)
+    #to_addr = ("47.89.39.100", 8333)
+
+
+
     to_services = TO_SERVICES
 
     handshake_msgs = []
